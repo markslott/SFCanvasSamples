@@ -63,7 +63,7 @@
                 Sfdc.canvas.client.ajax(url,
                     {client : sr.client,
                         method: 'PATCH',
-                        data: JSON.stringify(caseData),
+                        payload: JSON.stringify(caseData),
                         
                         contentType: "application/json",
                         success : function(data) {
