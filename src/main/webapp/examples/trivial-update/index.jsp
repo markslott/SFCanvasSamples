@@ -41,7 +41,7 @@
 
        Sfdc.canvas(function () {
 
-            console.log('document ready.');
+            console.log('canvas app document ready.');
 
             
             sr = JSON.parse('<%=signedRequestJson%>');
@@ -77,6 +77,9 @@
                     }
                 );
             });
+
+            Sfdc.canvas.client.publish(sr.client,
+                {name : "mynamespace.caseRequested", payload : {caseId : null}});
         });
 
     </script>
