@@ -60,11 +60,11 @@
                 console.log("url: " + url);
                 var description = $("#value1").text();
                 var caseData = { description : description };
+                console.log("caseData = " + JSON.stringify(caseData));
                 Sfdc.canvas.client.ajax(url,
                     {client : sr.client,
                         method: 'PATCH',
                         data: JSON.stringify(caseData),
-                        
                         contentType: "application/json",
                         success : function(data) {
                             console.log(data);
