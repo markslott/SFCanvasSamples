@@ -64,6 +64,9 @@
                     {client : sr.client,
                         method: 'PATCH',
                         data: caseData,
+                        headers : { 
+                            "Authorization" : "OAuth " + sr.client.oauthToken, 
+                        }, 
                         contentType: "application/json",
                         success : function(data) {
                             Sfdc.canvas.byId('arstatuspost').innerHTML = data.status;
