@@ -82,14 +82,16 @@
     </script>
 </head>
 <body>
-    
+    <h1>Sample Canvas Case Update App</h1><br/>
     <h2>Enter a description to add to case record <span id="caseId"></span>: </h2><br/>
     <input id="value1" type="text"/>
-    <button id="updateCaseButton">Update Case</button>
+    <button id="updateCaseButton" style="width: 100px;background: lightblue">Update Case</button>
     <br/>
     <h2>Signed Request Token deserialized</h2>
     <br/>
+    <pre>
     <span id='signedrequestjson'></span>
+    </pre>
     <br/>
 </body>
 </html>
