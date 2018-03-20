@@ -50,7 +50,7 @@
             Sfdc.canvas.client.subscribe(sr.client,
                 {name : 'mynamespace.caseIdChanged', onData : function (event) {
                     console.log("Subscribed to custom event ", event);
-                    $("#caseId").innerHTML = event.caseId;
+                    Sfdc.canvas.byId('caseId').innerHTML = event.caseId;
                     caseId = event.caseId;
                 }}
             );
@@ -63,7 +63,7 @@
                 Sfdc.canvas.client.ajax(url,
                     {client : sr.client,
                         method: 'PATCH',
-                        data: caseData,
+                        data: JSON.stringify(caseData),
                         headers : { 
                             "Authorization" : "OAuth " + sr.client.oauthToken, 
                         }, 
