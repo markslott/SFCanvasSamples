@@ -69,7 +69,8 @@
                         success : function(data) {
                             console.log(data);
                             //send a message back to the parent frame telling it update occured
-                            if (data.status == 201) {
+                            //status 204 means it worked
+                            if (data.status == 204) {
                             
                                 Sfdc.canvas.client.publish(sr.client,
                                     {name : "mynamespace.caseUpdated", payload : {}});
