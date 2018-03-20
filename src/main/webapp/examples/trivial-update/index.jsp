@@ -40,10 +40,9 @@
 
         $(document).ready(function () {
 
-            //listen for events from visualforce page
-            
+            console.log('document ready.');
 
-            Sfdc.canvas(function() {
+            
                 sr = JSON.parse('<%=signedRequestJson%>');
                 Sfdc.canvas.oauth.token(sr.oauthToken);
                 Sfdc.canvas.byId('signedrequestjson').innerHTML = JSON.stringify(sr, null, 2);
@@ -53,7 +52,7 @@
 
                     }}
                 );
-            });
+            
 
 
             $("#updateCaseButton").click(function(){
