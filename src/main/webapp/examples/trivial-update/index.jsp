@@ -69,7 +69,6 @@
                         }, 
                         contentType: "application/json",
                         success : function(data) {
-                            Sfdc.canvas.byId('arstatuspost').innerHTML = data.status;
                             console.log(data);
                             //send a message back to the parent frame telling it update occured
                             Sfdc.canvas.client.publish(sr.client,
