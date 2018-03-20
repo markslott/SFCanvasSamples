@@ -35,12 +35,14 @@
             alert("This canvas app must be included within an iframe");
         }
 
+        var sr;
+
 
         $(document).ready(function () {
 
             //listen for events from visualforce page
-            var sr;
             
+
             Sfdc.canvas(function() {
                 sr = JSON.parse('<%=signedRequestJson%>');
                 Sfdc.canvas.oauth.token(sr.oauthToken);
