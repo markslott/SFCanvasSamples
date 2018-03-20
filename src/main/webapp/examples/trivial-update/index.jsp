@@ -39,7 +39,7 @@
         var caseId;
 
 
-        $(document).ready(function () {
+       Sfdc.canvas(function () {
 
             console.log('document ready.');
 
