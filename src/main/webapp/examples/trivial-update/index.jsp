@@ -57,6 +57,7 @@
             
             $("#updateCaseButton").click(function(){
                 var url = "/services/data/v41.0/sobjects/Case/" + caseId;
+                console.log("url: " + url);
                 var description = $("#value1").text();
                 var caseData = { description : description };
                 Sfdc.canvas.client.ajax(url,
@@ -70,10 +71,6 @@
                             //send a message back to the parent frame telling it update occured
                             Sfdc.canvas.client.publish(sr.client,
                                     {name : "mynamespace.caseUpdated", payload : {status : 'Completed'}});
-                        },
-                        error : function (data) {
-                            console.log("error");
-                            console.log(data);
                         }
                     }
                 );
