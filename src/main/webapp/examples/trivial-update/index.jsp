@@ -36,6 +36,7 @@
         }
 
         var sr;
+        var caseId;
 
 
         $(document).ready(function () {
@@ -43,18 +44,17 @@
             console.log('document ready.');
 
             
-                sr = JSON.parse('<%=signedRequestJson%>');
-                Sfdc.canvas.oauth.token(sr.oauthToken);
-                Sfdc.canvas.byId('signedrequestjson').innerHTML = JSON.stringify(sr, null, 2);
-                Sfdc.canvas.client.subscribe(sr.client,
-                    {name : 'mynamespace.caseIdChanged', onData : function (event) {
-                        console.log("Subscribed to custom event ", event);
-
-                    }}
-                );
+            sr = JSON.parse('<%=signedRequestJson%>');
+            Sfdc.canvas.oauth.token(sr.oauthToken);
+            Sfdc.canvas.byId('signedrequestjson').innerHTML = JSON.stringify(sr, undefined, 2);
+            Sfdc.canvas.client.subscribe(sr.client,
+                {name : 'mynamespace.caseIdChanged', onData : function (event) {
+                    console.log("Subscribed to custom event ", event);
+                    $("caseId").innerHTML = event.caseId;
+                    caseId = event.caseId;
+                }}
+            );
             
-
-
             $("#updateCaseButton").click(function(){
                 var url = "/services/data/v41.0/sobjects/Case/" + caseId;
                 var description = $("#value1").text();
@@ -84,8 +84,7 @@
 </head>
 <body>
     
-    <p>Enter a description to add to case record: </p>
-
+    <h2>Enter a description to add to case record <span id="caseId"></span>: </h2><br/>
     <input id="value1" type="text"/>
     <button id="updateCaseButton">Update Case</button>
     <br/>
