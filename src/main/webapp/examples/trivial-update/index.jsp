@@ -89,9 +89,10 @@
     <br/>
     <h2>Signed Request Token deserialized</h2>
     <br/>
-    <pre>
-    <span id='signedrequestjson'></span>
-    </pre>
-    <br/>
+    <div style="overflow-y: scroll; height: 300px; width:100%">
+        <pre>
+        <span id='signedrequestjson'></span>
+        </pre>
+    </div>
 </body>
 </html>
