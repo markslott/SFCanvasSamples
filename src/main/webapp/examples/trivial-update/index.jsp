@@ -58,7 +58,7 @@
             $("#updateCaseButton").click(function(){
                 var url = "/services/data/v41.0/sobjects/Case/" + caseId;
                 console.log("url: " + url);
-                var description = $("#value1").text();
+                var description = $("#value1").val();
                 var caseData = { description : description };
                 console.log("caseData = " + JSON.stringify(caseData));
                 Sfdc.canvas.client.ajax(url,
